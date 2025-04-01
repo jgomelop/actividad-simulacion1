@@ -2,8 +2,8 @@
 
 |Integrante|correo|usuario github|
 |---|---|---|
-|Nombre completo integrante 1|correo integrante 1|gihub user integrante 1|
-|Nombre completo integrante 2|correo integrante 2|gihub user integrante 2|
+|Juan Pablo Gómez López|juan.gomez148@udea.edu.co|jgomelop|
+|Danilo Tovar|correo integrante 2|gihub user integrante 2|
 
 ## Instrucciones
 
@@ -24,7 +24,7 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   100% de utilización, porque no hay llamadas IO, y se especificó que la prob de uso de cpu en ambos procesos es 100%.
    </details>
    <br>
 
@@ -32,7 +32,7 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   Se demora 11 unidades de tiempo en total, 4 tiempos para instrucciones de CPU, y 6 para peticiones de I/O. Primero, 4 instrucciones de CPU, un tiempo por cada instrucción. Luego realiza la llamada a I/O, un tiempo. Por defecto, la simulación toma 5 tiempos para procesar la petición, por lo que 
    </details>
    <br>
 
