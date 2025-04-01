@@ -3,7 +3,7 @@
 |Integrante|correo|usuario github|
 |---|---|---|
 |Juan Pablo Gómez López|juan.gomez148@udea.edu.co|jgomelop|
-|Danilo Tovar|correo integrante 2|gihub user integrante 2|
+|Danilo Antonio Tovar Arias|danilo.tovar@udea.edu.co|DaniloTovar|
 
 ## Instrucciones
 
@@ -24,7 +24,13 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   100% de utilización, porque no hay llamadas IO, y se especificó que la prob de uso de cpu en ambos procesos es 100%.
+      
+   ![image1](https://github.com/user-attachments/assets/3050d571-21bc-4594-a599-da7455059d0b)
+      
+   De acuerdo a las imagen resultante anterior se concluye que la CPU debería estar en uso el 100% del tiempo, tal que el 50% del tiempo se ocupa en el proceso 1 y el otro 50% en el proceso 2. Debido a que no existe ningun proceso de entrada y/o salida para ninguno de los 2 procesos. Lo anterior se verifica con la siguiente imagen:
+   
+   ![image2](https://github.com/user-attachments/assets/a149496b-df1e-4cfd-a773-9dcf3fd648e1)
+   
    </details>
    <br>
 
@@ -32,7 +38,13 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Se demora 11 unidades de tiempo en total, 4 tiempos para instrucciones de CPU, y 6 para peticiones de I/O. Primero, 4 instrucciones de CPU, un tiempo por cada instrucción. Luego realiza la llamada a I/O, un tiempo. Por defecto, la simulación toma 5 tiempos para procesar la petición, por lo que 
+      
+   ![image3](https://github.com/user-attachments/assets/e08ca559-5599-4f69-b420-a5e06d14986a)
+      
+   De acuerdo al resultado obtenido, se utilizan 4 momentos necesarios para completar las 4 instrucciones establecidas por el proceso 1, mientras que para el proceso de I/O será necesario un momento para iniciar la actividad de I/O y adicionalmente, se utilizara el tiempo necesario para completar la actividad de I/O. Como se puede observar en la siguiente imagen:
+   
+   ![image4](https://github.com/user-attachments/assets/e2260ad5-c577-428f-a328-1ee2944a693b)
+   
    </details>
    <br>
 
@@ -40,15 +52,25 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+      
+   ![image5](https://github.com/user-attachments/assets/4d1547f7-5744-4d97-b72c-f166fd4df77d)
+   
+   A diferencia del punto anterior, ahora primero se inicia el proceso de I/O primero, permitiendo que se aproveche de manera mas optima los tiempos, debido a que se utiliza un momento de la CPU para iniciar la actividad de I/O, y mientras se completa esa actividad la CPU se utiliza en los 4 momentos necesarios para completar las 4 instrucciones establecidas por el otro proceso, reduciendo el tiempo total necesario para completar ambos proceso. Como se observa en la siguiente imagen:
+   
+   ![image6](https://github.com/user-attachments/assets/c3cec118-b995-461f-a9ca-83dfea28152c)
+   
    </details>
    <br>
 
 4. We'll now explore some of the other flags. One important flag is `-S`, which determines how the system reacts when a process issues an I/O. With the flag set to SWITCH ON END, the system will NOT switch to another process while one is doing I/O, instead waiting until the process is completely finished. What happens when you run the following two processes (`-l 1:0,4:100 -c -S SWITCH ON END`), one doing I/O and the other doing CPU work?
    
    <details>
-   <summary>Answer</summary>
-   Coloque aqui su respuerta
+   <summary>Answer</summary>   
+      
+   En este caso, a pesar de que la actividad de I/O se inicia primero, debido al nuevo flag, se debe esperar a que finalice dicha actividad antes de iniciar el otro proceso. Como se muestra en la imagen:
+      
+   ![image7](https://github.com/user-attachments/assets/ae719445-6304-4515-9fbe-cf9998da9155)
+   
    </details>
    <br>
 
