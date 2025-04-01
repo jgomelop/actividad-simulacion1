@@ -78,7 +78,9 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   Cuando se hace la llamada a I/O, el proceso entra en estado BLOCKED, e <em>inmediatamente comienza a ejecutarse el otro proceso</em> PID: 1, que estaba READY. Es importante anotar que en este caso el proceso PID: 1 termina antes de que la llamada I/O se complete, por lo que este último proceso permanece en estado BLOCKED un tiempo más, hasta que finaliza.
+
+   ![image8](./figs/5.png)
    </details>
    <br>
 
@@ -86,7 +88,10 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   Primero hace una llamada I/O, bloqueando ese proceso, luego cambia al siguiente proceso de CPU, pero cuando termina el llamado a I/O, no se regresa, y continua ejecutando los demás procesos de CPU, dejando 10 tiempos al recurso de I/O en espera. Este no es un uso eficiente de los recursos.
+
+   ![image9](./figs/6.png)
+
    </details>
    <br>
 
@@ -94,7 +99,13 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   En comparación con el caso anterior, al finalizar una llamada de I/O se comienza a ejecutar la siguiente llamada de I/O y no se espera a que terminen los demás procesos de CPU primero. Se observa la reducción en 10 tiempos, mejorando la eficiencia. Por lo tanto, es buena idea regresar a la siguiente llamada de I/O luego de terminar una llamada de I/O debido a que este tipo de llamadas entran en estado BLOCKED, y permiten ejecutar procesos de CPU mientras tanto.
+
+   ![image10](./figs/7.png)
+
+   A continuación se muestra el mismo caso, pero con valores distintos para las llamadas en CPU. Se puede observar cómo se interrumpe un proceso de CPU para comenzar una llamada de I/O y luego regresar al proceso en ejecución.
+
+   ![image11](./figs/7_1.png)
    </details>
    <br>
 
